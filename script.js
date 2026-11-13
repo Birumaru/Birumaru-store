@@ -1,5 +1,5 @@
 // GANTI nomor WhatsApp admin (format internasional tanpa +)
-var WA="6285380300492";
+var WA="6285280300492";
 var PKGS=[["125 VP",15000],["420 VP",50000],["700 VP",80000],["1.375 VP",150000],["2.400 VP",250000],["4.000 VP",400000],["8.150 VP",800000]];
 var RANKS=["Iron","Bronze","Silver","Gold","Platinum","Diamond","Ascendant","Immortal","Radiant"];
 var COST=[15000,20000,30000,45000,65000,90000,130000,250000];
@@ -75,14 +75,38 @@ $("orderJoki2").onclick=function(){
   if(!s)return toast("Pilih target rank yang lebih tinggi");
   if(!/^.+#.+$/.test(id))return toast("Isi Riot ID dengan format Nama#TAG");
   if(!$("jagree").checked)return toast("Centang persetujuan risiko dulu");
-  wa("Halo Birumaru Store, saya mau order joki:\n• Rank: "+$("jlabel").textContent+"\n• Harga: "+rp(s)+"\n• Riot ID: "+id+"\n• Pembayaran: "+$("jpay").value+"\n• Catatan: "+($("jnote").value||"-"));
+  if(!$("jsender").value.trim())return toast("Isi nama pengirim pembayaran");
+  if(!$("jpaid").checked)return toast("Konfirmasi pembayaran dulu");
+  wa("Halo Birumaru Store, saya mau order joki:\n• Rank: "+$("jlabel").textContent+"\n• Harga: "+rp(s)+"\n• Riot ID: "+id+"\n• Pembayaran: "+PAY[payIdx].n+" | Pengirim: "+$("jsender").value.trim()+"\n• Catatan: "+($("jnote").value||"-"));
 };
 
+// GANTI nomor/rekening pembayaran di bawah ini dengan milikmu
+var PAY=[
+  {n:"QRIS",acc:"",note:"Admin mengirim kode QRIS lewat WhatsApp setelah pesanan masuk."},
+  {n:"DANA",acc:"08xxxxxxxxxx",an:"Birumaru Store"},
+  {n:"OVO",acc:"08xxxxxxxxxx",an:"Birumaru Store"},
+  {n:"GoPay",acc:"08xxxxxxxxxx",an:"Birumaru Store"},
+  {n:"Transfer Bank",acc:"BCA 0000000000",an:"Birumaru Store"}
+],payIdx=0;
+function renderPay(){
+  document.querySelectorAll("#paym .pkg").forEach(function(b,i){b.classList.toggle("on",i===payIdx)});
+  var p=PAY[payIdx],box=$("payinfo");box.textContent="";
+  var t=document.createElement("div");t.style.fontWeight="700";t.textContent="Total bayar: "+$("jprice").textContent;box.append(t);
+  if(p.acc){
+    var l=document.createElement("div");l.style.marginTop="8px";l.textContent=p.n+": "+p.acc+" (a.n. "+p.an+")";
+    var c=document.createElement("button");c.type="button";c.className="tbtn";c.style.marginLeft="8px";c.textContent="Salin";
+    c.onclick=function(){try{navigator.clipboard.writeText(p.acc).then(function(){toast("Nomor disalin")},function(){toast("Gagal menyalin")})}catch(e){toast("Gagal menyalin")}};
+    l.append(c);box.append(l);
+  }
+  var n=document.createElement("div");n.style.cssText="margin-top:8px;color:var(--muted)";
+  n.textContent=p.note||"Transfer sesuai total, lalu kirim bukti pembayaran ke WhatsApp admin.";box.append(n);
+}
+PAY.forEach(function(p,i){var b=document.createElement("button");b.type="button";b.className="pkg";b.innerHTML="<b>"+p.n+"</b>";b.onclick=function(){payIdx=i;renderPay()};$("paym").appendChild(b)});
 function route(){
   var ck=location.hash==="#checkout";
   if(ck&&!jokiTotal()){location.hash="joki";return}
   document.body.classList.toggle("checkout",ck);
-  if(ck){$("clabel").textContent=$("jlabel").textContent;$("cprice").textContent=$("jprice").textContent;window.scrollTo(0,0)}
+  if(ck){$("clabel").textContent=$("jlabel").textContent;$("cprice").textContent=$("jprice").textContent;renderPay();window.scrollTo(0,0)}
   else if(location.hash.length>1){var el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView()}
 }
 try{var ck0=JSON.parse(sessionStorage.getItem("bms_ck"));if(ck0){$("from").value=ck0.f;$("to").value=ck0.t;jokiTotal()}}catch(e){}

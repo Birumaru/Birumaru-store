@@ -49,9 +49,13 @@
 <div class="total"><span id="clabel">-</span><span id="cprice">Rp0</span></div>
 <div class="row">
 <div><label for="jid">Riot ID</label><input id="jid" placeholder="Nama#TAG"></div>
-<div><label for="jpay">Metode Pembayaran</label><select id="jpay"><option>QRIS</option><option>DANA</option><option>OVO</option><option>GoPay</option><option>Transfer Bank</option></select></div>
 </div>
 <label for="jnote">Catatan (opsional)</label><input id="jnote" placeholder="Agent favorit, jam bermain, dll.">
+<h3 style="margin:20px 0 4px">Form Pembayaran</h3>
+<label>Metode Pembayaran</label>
+<div class="grid" id="paym" style="margin-bottom:12px"></div>
+<div class="ores" id="payinfo"></div>
+<label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin-top:14px"><input type="checkbox" id="jpaid" style="width:auto;margin-top:4px"><span>Saya sudah membayar sesuai total dan akan mengirim bukti pembayaran di WhatsApp.</span></label>
 <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin-top:14px"><input type="checkbox" id="jagree" style="width:auto;margin-top:4px"><span>Saya paham joki melanggar ketentuan Riot Games dan menerima risiko sanksi pada akun.</span></label>
 <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px"><a class="btn alt" href="#joki" style="margin:0">← Ubah Pilihan</a><button class="btn" id="orderJoki2" style="flex:1">Kirim Pesanan via WhatsApp</button></div>
 </div></div></section>
