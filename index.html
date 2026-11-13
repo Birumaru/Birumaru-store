@@ -26,10 +26,15 @@
 <div class="grid" id="pkgs"></div>
 <div class="row">
 <div><label for="rid">Riot ID</label><input id="rid" placeholder="Nama#TAG, contoh: Maru#1234"></div>
-<div><label for="pay">Metode Pembayaran</label><select id="pay"><option>QRIS</option><option>DANA</option><option>OVO</option><option>GoPay</option><option>Transfer Bank</option></select></div>
+<div><label for="tsender">Nama Pengirim Pembayaran</label><input id="tsender" placeholder="Sesuai akun atau rekening"></div>
 </div>
 <div class="total"><span id="tlabel">Belum pilih paket</span><span id="tprice">Rp0</span></div>
-<button class="btn" id="orderTopup" style="width:100%">Pesan via WhatsApp</button>
+<h3 style="margin:6px 0 4px">Form Pembayaran</h3>
+<label>Metode Pembayaran</label>
+<div class="grid" id="tpaym" style="margin-bottom:12px"></div>
+<div class="ores" id="tpayinfo"></div>
+<label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin-top:14px"><input type="checkbox" id="tpaid" style="width:auto;margin-top:4px"><span>Saya sudah membayar sesuai total dan akan mengirim bukti pembayaran di WhatsApp.</span></label>
+<button class="btn" id="orderTopup" style="width:100%;margin-top:16px">Kirim Pesanan via WhatsApp</button>
 </div></div></section>
 
 <section id="joki"><div class="wrap">
