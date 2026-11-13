@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Birumaru Store – Topup &amp; Joki Valorant</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap"><nav>
+<div class="logo"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs><path d="M24 3 42 10v13c0 11-7.5 18.5-18 22C13.500 41.500 6 34 6 23V10z" fill="url(#lg)"/><path d="M17 14h9.500a5 5 0 0 1 3 9 5.500 5.500 0 0 1-3 10H17zm5 4.500v4h4a2 2 0 0 0 0-4zm0 8.500v5h4.500a2.500 2.500 0 0 0 0-5z" fill="#fff" fill-rule="evenodd"/><circle cx="35" cy="13" r="3" fill="#ff4655"/></svg><span>Birumaru Store</span></div>
+<ul><li><a href="#topup">Topup VP</a></li><li><a href="#joki">Joki Rank</a></li><li><a href="#status">Cek Pesanan</a></li><li id="navadm" hidden><a href="#admin">Admin</a></li><li><a href="#kenapa">Keunggulan</a></li><li><a href="#faq">FAQ</a></li></ul>
+<button class="tbtn" id="theme" aria-label="Ganti tema">🌓</button>
+</nav></div></header>
+
+<div class="hero"><div class="wrap">
+<h1>Topup &amp; Joki <span>Valorant</span><br>Cepat, Aman, Terpercaya</h1>
+<p>Beli Valorant Points dan naikkan rank impianmu bersama booster profesional Birumaru Store.</p>
+<a class="btn" href="#topup">Topup Sekarang</a><a class="btn alt" href="#joki">Order Joki</a>
+<div class="stats"><div><b>5 Menit</b><small>Proses topup</small></div><div><b>1.200+</b><small>Order selesai</small></div><div><b>24/7</b><small>Admin aktif</small></div></div>
+</div></div>
+
+<section id="topup"><div class="wrap">
+<h2>Topup Valorant Points</h2><p class="sub">Pilih nominal VP, isi Riot ID, lalu kirim pesanan ke admin.</p>
+<div class="card">
+<div class="grid" id="pkgs"></div>
+<div class="row">
+<div><label for="rid">Riot ID</label><input id="rid" placeholder="Nama#TAG, contoh: Maru#1234"></div>
+<div><label for="pay">Metode Pembayaran</label><select id="pay"><option>QRIS</option><option>DANA</option><option>OVO</option><option>GoPay</option><option>Transfer Bank</option></select></div>
+</div>
+<div class="total"><span id="tlabel">Belum pilih paket</span><span id="tprice">Rp0</span></div>
+<button class="btn" id="orderTopup" style="width:100%">Pesan via WhatsApp</button>
+</div></div></section>
+
+<section id="joki"><div class="wrap">
+<h2>Joki Rank Valorant</h2><p class="sub">Pilih rank awal dan target, harga dihitung otomatis.</p>
+<div class="card">
+<div class="row">
+<div><label for="from">Rank Sekarang</label><select id="from"></select></div>
+<div><label for="to">Rank Target</label><select id="to"></select></div>
+</div>
+<div class="total"><span id="jlabel">Pilih rank</span><span id="jprice">Rp0</span></div>
+<button class="btn" id="orderJoki" style="width:100%">Lanjut ke Pemesanan →</button>
+</div></div></section>
+
+<section id="checkout"><div class="wrap">
+<h2>Pemesanan &amp; Checkout Joki</h2><p class="sub">Periksa ringkasan, isi data akun, lalu kirim pesanan langsung ke WhatsApp admin.</p>
+<div class="card">
+<div class="total"><span id="clabel">-</span><span id="cprice">Rp0</span></div>
+<div class="row">
+<div><label for="jid">Riot ID</label><input id="jid" placeholder="Nama#TAG"></div>
+<div><label for="jpay">Metode Pembayaran</label><select id="jpay"><option>QRIS</option><option>DANA</option><option>OVO</option><option>GoPay</option><option>Transfer Bank</option></select></div>
+</div>
+<label for="jnote">Catatan (opsional)</label><input id="jnote" placeholder="Agent favorit, jam bermain, dll.">
+<label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin-top:14px"><input type="checkbox" id="jagree" style="width:auto;margin-top:4px"><span>Saya paham joki melanggar ketentuan Riot Games dan menerima risiko sanksi pada akun.</span></label>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px"><a class="btn alt" href="#joki" style="margin:0">← Ubah Pilihan</a><button class="btn" id="orderJoki2" style="flex:1">Kirim Pesanan via WhatsApp</button></div>
+</div></div></section>
+
+<section id="status"><div class="wrap">
+<h2>Cek Status Pesanan</h2><p class="sub">Masukkan nomor pesanan, contoh: BMS-1A2B3C.</p>
+<div class="card">
+<div class="row"><div><label for="sid">Nomor Pesanan</label><input id="sid" placeholder="BMS-XXXXXX"></div><div style="display:flex;align-items:flex-end"><button class="btn" id="chk" style="width:100%">Cek Status</button></div></div>
+<div id="sres" style="margin-top:16px"></div>
+</div></div></section>
+
+<section id="admin" hidden><div class="wrap">
+<h2>Panel Admin</h2><p class="sub">Tambah pesanan dari chat WhatsApp, lalu ubah statusnya. Pelanggan melihat status terbaru di Cek Pesanan.</p>
+<div class="card">
+<div class="row"><div><label for="aid">Nomor Pesanan</label><input id="aid" placeholder="BMS-XXXXXXXX"></div><div><label for="adet">Detail Pesanan</label><input id="adet" placeholder="Contoh: Joki Gold ke Platinum, Maru#1234"></div></div>
+<button class="btn" id="aadd" style="margin-top:12px">Tambah Pesanan</button>
+<div id="alist" style="margin-top:18px">Memuat…</div>
+</div></div></section>
+
+<section id="kenapa"><div class="wrap">
+<h2>Kenapa Birumaru Store?</h2><p class="sub">Layanan yang mengutamakan kenyamanan kamu.</p>
+<div class="feat">
+<div class="card"><h3>⚡ Proses Cepat</h3><p>Topup masuk dalam hitungan menit setelah pembayaran terkonfirmasi.</p></div>
+<div class="card"><h3>🛡️ Privasi Terjaga</h3><p>Data akun hanya dipakai untuk pesanan dan tidak dibagikan ke pihak lain.</p></div>
+<div class="card"><h3>🎯 Booster Berpengalaman</h3><p>Dikerjakan pemain rank tinggi dengan progres yang bisa dipantau.</p></div>
+<div class="card"><h3>💬 Admin Responsif</h3><p>Tanya status pesanan kapan saja lewat WhatsApp.</p></div>
+</div></div></section>
+
+<section id="faq"><div class="wrap">
+<h2>FAQ</h2><p class="sub">Pertanyaan yang sering ditanyakan.</p>
+<details><summary>Bagaimana cara topup?</summary><p>Pilih nominal, isi Riot ID, klik pesan, lalu ikuti instruksi pembayaran dari admin.</p></details>
+<details><summary>Apakah joki aman?</summary><p>Joki melanggar ketentuan layanan Riot Games sehingga ada risiko sanksi pada akun. Dengan memesan, kamu memahami dan menerima risiko tersebut.</p></details>
+<details><summary>Berapa lama pengerjaan joki?</summary><p>Rata-rata 1–3 hari per tier, tergantung antrean dan kondisi akun.</p></details>
+<details><summary>Bisa refund?</summary><p>Pesanan yang belum diproses bisa dibatalkan dan dana dikembalikan penuh.</p></details>
+</div></section>
+
+<footer><div class="wrap">© <span id="yr"></span> Birumaru Store. Bukan afiliasi resmi Riot Games. Valorant adalah merek dagang Riot Games, Inc.</div></footer>
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
