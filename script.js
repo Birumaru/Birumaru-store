@@ -85,9 +85,9 @@ $("orderJoki2").onclick=function(){
 // GANTI nomor/rekening pembayaran di bawah ini dengan milikmu
 var PAY=[
   {n:"QRIS",acc:"",note:"Admin mengirim kode QRIS lewat WhatsApp setelah pesanan masuk."},
-  {n:"DANA",acc:"08xxxxxxxxxx",an:"Birumaru Store"},
-  {n:"OVO",acc:"08xxxxxxxxxx",an:"Birumaru Store"},
-  {n:"GoPay",acc:"08xxxxxxxxxx",an:"Birumaru Store"},
+  {n:"DANA",acc:"085380300492",an:"Aidil Ibnu Ahmad"},
+  {n:"OVO",acc:"085380300492",an:"Aidil Ibnu Ahmad"},
+  {n:"GoPay",acc:"085380300492",an:"Aidil Ibnu Ahmad"},
   {n:"Transfer Bank",acc:"BCA 0000000000",an:"Birumaru Store"}
 ],payIdx=0;
 function renderPay(){
