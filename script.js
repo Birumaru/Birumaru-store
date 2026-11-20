@@ -1,5 +1,5 @@
 // GANTI nomor WhatsApp admin (format internasional tanpa +)
-var WA="6285280300492";
+var WA="6285380300492";
 var PKGS=[["125 VP",15000],["420 VP",50000],["700 VP",80000],["1.375 VP",150000],["2.400 VP",250000],["4.000 VP",400000],["8.150 VP",800000]];
 var RANKS=["Iron","Bronze","Silver","Gold","Platinum","Diamond","Ascendant","Immortal","Radiant"];
 var COST=[15000,20000,30000,45000,65000,90000,130000,250000];
